@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infusion</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+
+  </script>
+
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+
+</head>
+<body>
+  
+
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">InFusion: Inpainting 3D Gaussians via Learning Depth Completion from Diffusion Prior</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://johanan528.github.io/">Zhiheng Liu</a><sup>1,4*</sup>,</span>
+              <span class="author-block">
+                <a href="https://ken-ouyang.github.io/">Hao Ouyang</a><sup>2,3*</sup>,</span>
+              <span class="author-block">
+                <a href="https://github.com/qiuyu96">Qiuyu Wang</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://felixcheng97.github.io/">Ka Leong Cheng</a><sup>2,3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://jiexiaou.github.io/">Jie Xiao</a><sup>1,4</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=Mo_2YsgAAAAJ&hl=zh-CN">Kai Zhu</a><sup>4</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://xuenan.net/">Nan Xue</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=8zksQb4AAAAJ&hl=zh-CN">Yu Liu</a><sup>4</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://shenyujun.github.io/">Yujun Shen</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://staff.ustc.edu.cn/~forrest/">Yang Cao</a><sup>1†</sup>
+              </span>
+            </div>
+      
+      
+        <div class="is-size-5 publication-authors">
+          <span class="author-block"><sup>1</sup>USTC</span>&ensp;
+          <span class="author-block"><sup>2</sup>HKUST</span>&ensp;
+              <span class="author-block"><sup>3</sup>Ant Group</span>&ensp;
+              <span class="author-block"><sup>4</sup>Alibaba Group</span>
+            </div>
+            <!-- <div class="is-size-5 publication-authors"> -->
+          
+  
+            </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2308.07926"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/qiuyu96/CoDeF"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Video Link. -->
+              
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Begin teaser video. -->
+<!-- Translation. -->
+<div class="columns is-centered has-text-centered">
+  <h2 class="title is-3">Gaussian Inpainting</h2>
+</div>
+
+
+        
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+	 <!-- Begin gallery-1. -->
+
+   <div class="container">
+    <div id="results-carousel2" class="carousel results-carousel">
+    </div>
+    </div>
+  
+  
+    <div class="container">
+      <div id="results-carousel2" class="carousel results-carousel">
+        <div class="item g11">
+          <video poster="" id="g11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/first/room.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g12">
+          <video poster="" id="g12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/first/bear.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g13">
+          <video poster="" id="g13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/first/garden.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+   	
+    
+
+  </div>
+</section>
+
+  <!-- Begin gallery. -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+	 <!-- Begin gallery-1. -->
+
+    <!-- <div class="container">
+    <div id="results-carousel1" class="carousel results-carousel">
+    </div>
+    </div> -->
+  
+  
+    <div class="container">
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g21">
+          <video poster="" id="g21" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/second/grass.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g22">
+          <video poster="" id="g22" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/second/fence.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g23">
+          <video poster="" id="g23" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/second/book.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g24">
+          <video poster="" id="g24" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/second/kettle.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+   	
+    
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="columns is-centered has-text-centered mt-5">
+  <h2 class="title is-3">Point Cloud & Mesh</h2><br>
+</div>
+<!-- <div class="container">
+  <div id="results-carousel1" class="carousel results-carousel"> -->
+    
+
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container" style="width: 100%; max-width: 90%;"> <!-- 增加容器的最大宽度 -->
+          <div class="columns is-centered">
+            
+            <div id="models-slider" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+              <!-- 模块1 -->
+              <div class="model-viewer-container" style="width: 100%; max-width: 400px; margin-bottom: 20px;text-align: center;">
+                <div id="viewer1_point" style="width: 100%; "> 
+                  <model-viewer src="./glb/apple_point.glb" shadow-intensity="0" camera-controls touch-action="pan-y" style="width: 100%; height: 400px;"> 
+                  </model-viewer>
+                </div>
+                <div id="viewer1_mesh" style="display: none;"> 
+                  <model-viewer src="./glb/apple_mesh.glb" shadow-intensity="0" camera-controls touch-action="pan-y" camera-orbit="0deg 0deg 0.3m" style="width: 100%; height: 400px;"> 
+                  </model-viewer>
+                </div>
+                <button class="toggleView" >Mesh</button>
+              </div>
+              
+              <!-- 模块2 -->
+              <div class="model-viewer-container" style="width: 100%; max-width: 400px; margin-bottom: 20px;text-align: center;">
+                <div id="viewer2_point" style="width: 100%; "> 
+                  <model-viewer src="./glb/bag_point.glb" shadow-intensity="0" camera-controls touch-action="pan-y" style="width: 100%; height: 400px;"> 
+                  </model-viewer>
+                </div>
+                <div id="viewer2_mesh" style="display: none;"> 
+                  <model-viewer src="./glb/bag_mesh.glb" shadow-intensity="0" camera-controls touch-action="pan-y" camera-orbit="0deg 0deg 3m" style="width: 100%; height: 400px;"> 
+                  </model-viewer>
+                </div>
+                 <button class="toggleView" >Mesh</button>
+              </div>
+              
+              <!-- ...更多模块... -->
+              <div class="buttons has-addons is-centered" style="width: 100%; justify-content: center;">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+              </div>
+    
+            </div>
+          </div>
+        </div>      
+      </div>
+    </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Pipeline</h2>
+            <img src='static/images/overall.png' id="framework"><br><br>
+            <div class="content has-text-justified">
+              <!-- <p>
+                3D Gaussians have recently emerged as an efficient representation for novel view synthesis.This work studies its editability with a particular focus on the inpainting task, which aims to supplement an incomplete set of 3D Gaussians with additional points for visually harmonious rendering.
+                Compared to 2D inpainting, the crux of inpainting 3D Gaussians is to figure out the rendering-relevant properties of the introduced points, whose optimization largely benefits from their initial 3D positions.
+                To this end, we propose to guide the point initialization with an image-conditioned depth completion model, which learns to directly restore the depth map based on the observed image.
+                Such a design allows our model to fill in depth values at an aligned scale with the original depth, and also to harness strong generalizability from large-scale diffusion prior.
+                Thanks to the more accurate depth completion, our approach, dubbed <b>Infusion</b>, surpasses existing alternatives with sufficiently better fidelity and efficiency under various complex scenarios.
+                We further demonstrate the effectiveness of \method with several practical applications, such as inpainting with user-specific texture or with novel object insertion.
+              </p> -->
+              <p>
+                <i>Top</i>: To remove a target from the optimized 3D Gaussians, our <b><i>Infusion</i></b> first inpaints a selected one-view RGB image and applies the proposed diffusion model for depth inpainting to
+                the depth projection of the targeted 3D Gaussians. The progressive scheme addresses
+                view-dependent occlusion issues by utilizing other unobstructed viewpoints.
+              </p>
+              <p>
+                <i>Bottom</i>: A detailed view of the training pipeline for the depth inpainting U-Net is presented.
+                We employ a mask-driven denoising diffusion for training of the U-Net, which utilizes
+                a frozen latent tokenizer by taking the RGB image and depth map as inputs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br><br>
+    
+<!-- Other applications. -->
+<div class="columns is-centered has-text-centered mt-5">
+  <h2 class="title is-3">Texture Editing</h2><br>
+</div>
+<!-- Point-based Tracking. -->
+<section class="hero teaser">
+  <div class="container">
+    <!-- Row 1 -->
+    <div class="columns is-vcentered is-centered">
+      <div class="column is-6">
+        <div class="item g21">
+          <video poster="" id="g21" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/video/third/grass_wtw.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="item g22">
+          <video poster="" id="g22" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/video/third/book_l.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container has-text-centered">
+    <p><b>InFusion</b> allows users to modify the appearance and texture of targeted areas with ease.</p>
+  </div>
+</section>
+
+<div class="columns is-centered has-text-centered mt-5">
+  <h2 class="title is-3">Object Insertion</h2><br>
+</div>
+<!-- Point-based Tracking. -->
+<section class="hero teaser">
+  <div class="container">
+    <!-- Row 1 -->
+    <div class="columns is-vcentered is-centered">
+      <div class="column is-6">
+        <div class="item g21">
+          <video poster="" id="g21" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/video/fourth/fence_d.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="item g22">
+          <video poster="" id="g22" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/video/fourth/fence_c.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container has-text-centered">
+    <p><b>Infusion</b> allows user to project objects into a real three-dimensional scene through editing a single image.</p>
+  </div>
+</section>
+
+<!-- Point-based Tracking. -->
+
+
+<div class="columns is-centered has-text-centered mt-5">
+  <h2 class="title is-3">Challenging Scenarios</h2><br>
+</div>
+<!-- Point-based Tracking. -->
+<section class="hero teaser">
+  <div class="container">
+    <!-- Row 1 -->
+    <div class="columns is-vcentered is-centered">
+      <div class="column is-6">
+        <div class="item g21">
+          <video poster="" id="g21" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/video/fifth/apple_new.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="item g22">
+          <video poster="" id="g22" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/video/fifth/apple_hard_new.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container has-text-centered">
+    <p><b>InFusion</b> can adeptly handle inpainting tasks for views that substantially deviate from the initial reference frames.</p>
+  </div>
+  
+</section>
+<!-- Segmentation-based Tracking. -->
+
+
+<!-- <div class="columns is-centered has-text-centered mt-5 mb-0">
+  <h2 class="title is-3">Depth Visualization</h2><br>
+</div> -->
+
+
+<!-- <section class="hero teaser">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+
+    <div class="container">
+    <div id="results-carousel1" class="carousel results-carousel">
+    </div>
+    </div>
+  
+  
+    <div class="container">
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g21">
+          <video poster="" id="g21" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/sixth/depth.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    
+
+  </div>
+</section> -->
+
+
+
+<script>
+bulmaCarousel.attach('#results-carousel1', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    infinite: true,
+    autoplay: false,
+});
+bulmaCarousel.attach('#results-carousel2', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    infinite: true,
+    autoplay: false,
+});
+bulmaCarousel.attach('#results-carousel3', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    infinite: true,
+    autoplay: false,
+});
+</script>
+<script>
+  // 你的JavaScript代码
+  document.querySelectorAll('.toggleView').forEach(function(toggleButton) {
+  toggleButton.addEventListener('click', function() {
+    // 找到当前按钮所在的模型查看器容器
+    var container = this.closest('.model-viewer-container');
+    // 在该容器内查找点云和网格元素
+    var viewerPoint = container.querySelector('[id$="_point"]');
+    var viewerMesh = container.querySelector('[id$="_mesh"]');
+    
+    if (viewerPoint.style.display !== 'none') {
+      viewerPoint.style.display = 'none';
+      viewerMesh.style.display = 'block';
+      this.innerText = 'Point Cloud';
+    } else {
+      viewerPoint.style.display = 'block';
+      viewerMesh.style.display = 'none';
+      this.innerText = 'Mesh';
+    }
+  });
+});
+</script>
+<script>
+  let currentIndex = 0;
+const modelContainers = document.querySelectorAll('.model-viewer-container');
+const totalModels = modelContainers.length;
+
+document.getElementById('prevBtn').addEventListener('click', function() {
+  currentIndex = (currentIndex - 1 + totalModels) % totalModels;
+  updateModelVisibility();
+});
+
+document.getElementById('nextBtn').addEventListener('click', function() {
+  currentIndex = (currentIndex + 1) % totalModels;
+  updateModelVisibility();
+});
+
+function updateModelVisibility() {
+  modelContainers.forEach((container, index) => {
+    container.style.display = index === currentIndex ? 'inline-block' : 'none';
+  });
+  const slider = document.getElementById('models-slider');
+  slider.scrollLeft = slider.offsetWidth * currentIndex;
+}
+
+updateModelVisibility(); // 确保初始可见状态正确
+</script>
+</body>
+</html>
+ 
